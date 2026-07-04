@@ -1,6 +1,5 @@
 /* oxlint-disable react/only-export-components */
 import {createContext, useContext, useEffect, useMemo, useState, type ReactNode} from 'react'
-import {Provider, defaultTheme} from '@adobe/react-spectrum'
 import {Provider as S2Provider} from '@react-spectrum/s2/Provider'
 
 export type ColorScheme = 'light' | 'dark'
@@ -19,6 +18,7 @@ const getInitialColorScheme = (): ColorScheme => {
   if (typeof window === 'undefined') return 'light'
   const stored = window.localStorage.getItem(storageKey)
   if (isColorScheme(stored)) return stored
+  if (typeof window.matchMedia !== 'function') return 'light'
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
@@ -51,11 +51,9 @@ export const AppThemeProvider = ({children}: {children: ReactNode}) => {
 
   return (
     <AppThemeContext.Provider value={value}>
-      <Provider theme={defaultTheme} colorScheme={colorScheme}>
-        <S2Provider colorScheme={colorScheme} background="base">
-          {children}
-        </S2Provider>
-      </Provider>
+      <S2Provider colorScheme={colorScheme} background="base">
+        {children}
+      </S2Provider>
     </AppThemeContext.Provider>
   )
 }

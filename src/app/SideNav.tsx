@@ -1,19 +1,17 @@
-import {View, Text} from '@adobe/react-spectrum'
-import {ListBox, ListBoxItem} from 'react-aria-components'
 import {useLocation, useNavigate} from 'react-router-dom'
-import DashboardIcon from '@spectrum-icons/workflow/Dashboard'
-import GraphIcon from '@spectrum-icons/workflow/GraphArea'
-import UploadIcon from '@spectrum-icons/workflow/UploadToCloud'
-import DocumentIcon from '@spectrum-icons/workflow/Document'
-import BugIcon from '@spectrum-icons/workflow/Bug'
+import AppsIcon from '@react-spectrum/s2/icons/Apps'
+import ChartTrendIcon from '@react-spectrum/s2/icons/ChartTrend'
+import UploadIcon from '@react-spectrum/s2/icons/Upload'
+import FileTextIcon from '@react-spectrum/s2/icons/FileText'
+import BugIcon from '@react-spectrum/s2/icons/Bug'
 import './SideNav.css'
 import {useEffect, useState} from 'react'
 
 const navItems = [
-  {key: 'dashboard', label: 'Dashboard', path: '/', icon: DashboardIcon},
-  {key: 'portfolio', label: 'Portfolio', path: '/portfolio', icon: GraphIcon},
+  {key: 'dashboard', label: 'Dashboard', path: '/', icon: AppsIcon},
+  {key: 'portfolio', label: 'Portfolio', path: '/portfolio', icon: ChartTrendIcon},
   {key: 'uploads', label: 'Uploads', path: '/uploads', icon: UploadIcon},
-  {key: 'tax', label: 'Tax', path: '/tax', icon: DocumentIcon},
+  {key: 'tax', label: 'Tax', path: '/tax', icon: FileTextIcon},
   {key: 'debug', label: 'Debug', path: '/debug', icon: BugIcon},
 ] as const
 
@@ -55,45 +53,29 @@ export const SideNav = () => {
   const selectedKey = routeToKey(location.pathname)
 
   return (
-    <View UNSAFE_className={`side-nav-shell${isNarrow ? ' side-nav-shell--mobile' : ''}`}>
-      <ListBox
-        aria-label="Primary navigation"
-        selectionMode="single"
-        selectionBehavior="replace"
-        selectedKeys={new Set([selectedKey])}
-        onSelectionChange={(selection) => {
-          if (selection === 'all') return
-          const key = selection.values().next().value as string | undefined
-          const target = key ? keyToPath[key] ?? '/' : '/'
-          if (target !== location.pathname) navigate(target)
-        }}
-        className={({orientation}) => `side-nav-list${orientation === 'horizontal' ? ' side-nav-list--horizontal' : ''}`}
-        orientation={isNarrow ? 'horizontal' : 'vertical'}
-      >
+    <nav className={`side-nav-shell${isNarrow ? ' side-nav-shell--mobile' : ''}`} aria-label="Primary navigation">
+      <ul className={`side-nav-list${isNarrow ? ' side-nav-list--horizontal' : ''}`}>
         {navItems.map((item) => (
-          <ListBoxItem
-            key={item.key}
-            id={item.key}
-            textValue={item.label}
-            className={({isSelected, isHovered, isFocusVisible, isPressed}) =>
-              [
-                'side-nav-item',
-                isSelected ? 'side-nav-item--selected' : '',
-                isHovered ? 'side-nav-item--hovered' : '',
-                isFocusVisible ? 'side-nav-item--focus-visible' : '',
-                isPressed ? 'side-nav-item--pressed' : '',
-              ].filter(Boolean).join(' ')
-            }
-          >
-            <View UNSAFE_className="side-nav-item__content">
-              <View UNSAFE_className="side-nav-item__icon" aria-hidden="true">
-                <item.icon />
-              </View>
-              <Text UNSAFE_className="side-nav-item__label">{item.label}</Text>
-            </View>
-          </ListBoxItem>
+          <li key={item.key} className={`side-nav-item${selectedKey === item.key ? ' side-nav-item--selected' : ''}`}>
+            <button
+              type="button"
+              className="side-nav-item__button"
+              aria-current={selectedKey === item.key ? 'page' : undefined}
+              onClick={() => {
+                const target = keyToPath[item.key] ?? '/'
+                if (target !== location.pathname) navigate(target)
+              }}
+            >
+              <span className="side-nav-item__content">
+                <span className="side-nav-item__icon" aria-hidden="true">
+                  <item.icon aria-hidden="true" />
+                </span>
+                <span className="side-nav-item__label">{item.label}</span>
+              </span>
+            </button>
+          </li>
         ))}
-      </ListBox>
-    </View>
+      </ul>
+    </nav>
   )
 }

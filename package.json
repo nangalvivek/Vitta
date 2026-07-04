@@ -12,9 +12,7 @@
     "typecheck": "tsc -b"
   },
   "dependencies": {
-    "@adobe/react-spectrum": "^3.47.2",
     "@react-spectrum/s2": "^1.5.1",
-    "@spectrum-icons/workflow": "^4.3.1",
     "dexie": "^4.4.4",
     "dexie-react-hooks": "^4.4.0",
     "papaparse": "^5.5.4",
@@ -25,7 +23,6 @@
     "unplugin-parcel-macros": "^0.2.0"
   },
   "devDependencies": {
-    "@spectrum-icons/illustrations": "^3.7.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@types/node": "^24.13.2",

@@ -1,20 +1,19 @@
-import {View, Flex} from '@adobe/react-spectrum'
 import {Outlet} from 'react-router-dom'
 import {TopBar} from './TopBar'
 import {SideNav} from './SideNav'
 
 export const Layout = () => {
   return (
-    <View UNSAFE_className="app-layout">
+    <div className="app-layout">
       <TopBar />
-      <Flex UNSAFE_className="app-layout__body" direction="row" gap="size-0" flexGrow={1} minWidth={0}>
+      <div className="app-layout__body">
         <SideNav />
-        <Flex direction="column" flexGrow={1} minWidth={0}>
+        <div className="app-layout__main">
           <main className="app-content">
             <Outlet />
           </main>
-        </Flex>
-      </Flex>
-    </View>
+        </div>
+      </div>
+    </div>
   )
 }

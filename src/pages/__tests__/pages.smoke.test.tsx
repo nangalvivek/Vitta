@@ -1,7 +1,7 @@
 import type {ReactElement} from 'react'
 import {render, screen} from '@testing-library/react'
-import {Provider, defaultTheme} from '@adobe/react-spectrum'
 import {MemoryRouter} from 'react-router-dom'
+import {AppThemeProvider} from '../../app/theme'
 import {TaxYearProvider} from '../../app/TaxYearContext'
 import {DashboardPage} from '../DashboardPage'
 import {PortfolioPage} from '../PortfolioPage'
@@ -23,11 +23,11 @@ afterEach(async () => {
 
 const renderPage = (element: ReactElement): void => {
   render(
-    <Provider theme={defaultTheme}>
+    <AppThemeProvider>
       <MemoryRouter>
         <TaxYearProvider>{element}</TaxYearProvider>
       </MemoryRouter>
-    </Provider>,
+    </AppThemeProvider>,
   )
 }
 
