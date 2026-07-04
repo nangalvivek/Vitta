@@ -1,5 +1,5 @@
 import {useEffect, useMemo, useState} from 'react'
-import {Button, Column, Heading, Item, Picker, TabList, TabPanels, Tabs, TableBody, TableHeader, TableView, Cell, Row, Text, View} from '@adobe/react-spectrum'
+import {Button, Column, Heading, Item, Picker, TabList, TabPanels, Tabs, TableBody, TableHeader, TableView, Cell, Row, View} from '@adobe/react-spectrum'
 import {useSearchParams} from 'react-router-dom'
 import {usePortfolioData} from '../hooks/usePortfolioData'
 import {scheduleFa} from '../domain/tax/fa'
@@ -11,7 +11,7 @@ import {toCsv} from '../domain/export'
 import {downloadText} from '../lib/download'
 import {formatDate, formatMoney, formatQty} from '../lib/format'
 import {useTaxYear} from '../app/taxYearContext'
-import {EmptyState, Panel, SectionTitle} from '../components/Ui'
+import {EmptyState, Panel, PageHeader, SectionTitle, MetricCard} from '../components/Ui'
 
 type TabKey = 'fa' | 'fsi' | 'tr' | 'cg'
 
@@ -59,8 +59,8 @@ export const TaxPage = () => {
   }
 
   return (
-    <View UNSAFE_style={{display: 'grid', gap: '20px'}}>
-      <SectionTitle
+    <View UNSAFE_style={{display: 'grid', gap: '24px'}}>
+      <PageHeader
         title="Tax"
         subtitle="FA / FSI use calendar year. CG / TR use the financial-year view derived from the selected tax year."
         actions={
@@ -214,10 +214,7 @@ export const TaxPage = () => {
                     ['STCG Foreign', formatMoney(cgResult.totals.stcgForeign)],
                     ['LTCG Foreign', formatMoney(cgResult.totals.ltcgForeign)],
                   ].map(([label, value]) => (
-                    <Panel key={label}>
-                      <Text UNSAFE_style={{color: 'var(--spectrum-alias-text-color-secondary)'}}>{label}</Text>
-                      <Heading level={3} marginTop="size-100" marginBottom={0}>{value}</Heading>
-                    </Panel>
+                    <MetricCard key={label} label={String(label)} value={String(value)} />
                   ))}
                 </View>
               </Panel>

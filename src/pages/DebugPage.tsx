@@ -5,7 +5,7 @@ import {computeDedupeHash} from '../domain/dedupe'
 import {fifoTrace} from '../domain/fifo'
 import {downloadText} from '../lib/download'
 import {formatDateTime, formatMoney, formatQty} from '../lib/format'
-import {EmptyState, Panel, SectionTitle} from '../components/Ui'
+import {EmptyState, Panel, PageHeader, SectionTitle} from '../components/Ui'
 
 const categories = ['ALL', 'IMPORT', 'DEDUPE', 'FIFO', 'PRICE', 'ERROR', 'SYSTEM'] as const
 
@@ -49,8 +49,8 @@ export const DebugPage = () => {
   }, [hashForm])
 
   return (
-    <View UNSAFE_style={{display: 'grid', gap: '20px'}}>
-      <SectionTitle title="Debug" subtitle="Inspect logs, verify hashes, and trace FIFO lot consumption." />
+    <View UNSAFE_style={{display: 'grid', gap: '24px'}}>
+      <PageHeader title="Debug" subtitle="Inspect logs, verify hashes, and trace FIFO lot consumption." />
 
       <View UNSAFE_style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(24rem, 1fr))', gap: '20px'}}>
         <Panel>

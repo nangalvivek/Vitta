@@ -9,7 +9,7 @@ import {buildItrBundle} from '../domain/export/itr'
 import {exportBackup} from '../domain/export'
 import {downloadText} from '../lib/download'
 import {formatDateTime, formatMoney} from '../lib/format'
-import {Panel, SectionTitle, EmptyState, StatusBadge} from '../components/Ui'
+import {Panel, PageHeader, SectionTitle, EmptyState, StatusBadge, MetricCard} from '../components/Ui'
 
 const COLORS = ['var(--spectrum-global-color-blue-600)', 'var(--spectrum-global-color-celery-600)']
 
@@ -52,8 +52,8 @@ export const DashboardPage = () => {
   const recentFiles = files.slice(0, 5)
 
   return (
-    <View UNSAFE_style={{display: 'grid', gap: '20px'}}>
-      <SectionTitle
+    <View UNSAFE_style={{display: 'grid', gap: '24px'}}>
+      <PageHeader
         title="Dashboard"
         subtitle="A quick read on holdings, imports, and ITR readiness."
         actions={
@@ -65,17 +65,14 @@ export const DashboardPage = () => {
         }
       />
 
-      <View UNSAFE_style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(12rem, 1fr))', gap: '16px'}}>
+      <View UNSAFE_style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(13rem, 1fr))', gap: '16px'}}>
         {[
           ['Indian Holdings Value', formatMoney(summary.indian)],
           ['Foreign Holdings Value', formatMoney(summary.foreign)],
           ['Dividends received YTD', formatMoney(summary.dividends)],
           ['FA reportable assets', String(summary.faReportable)],
         ].map(([label, value]) => (
-          <Panel key={label}>
-            <Text UNSAFE_style={{color: 'var(--spectrum-alias-text-color-secondary)'}}>{label}</Text>
-            <Heading level={2} marginTop="size-100" marginBottom={0}>{value}</Heading>
-          </Panel>
+          <MetricCard key={label} label={label} value={value} />
         ))}
       </View>
 
@@ -129,7 +126,7 @@ export const DashboardPage = () => {
 
       <Panel>
         <SectionTitle title="Backup and export" subtitle="Keep a portable copy of everything stored on this device." />
-        <Flex gap="size-100" wrap>
+        <Flex gap="size-100" wrap justifyContent="end">
           <Button variant="accent" onPress={() => { void exportBackupFile() }}>Export full backup</Button>
           <Button variant="secondary" onPress={exportItr}>Export ITR JSON</Button>
           <Button variant="secondary" onPress={() => navigate('/tax')}>Open Tax schedules</Button>

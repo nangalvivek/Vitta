@@ -10,7 +10,7 @@ import {exportBackup, restoreBackup} from '../domain/export'
 import {downloadBlob, downloadText} from '../lib/download'
 import {formatDateTime, formatMoney, formatQty} from '../lib/format'
 import {usePortfolioData} from '../hooks/usePortfolioData'
-import {EmptyState, Panel, SectionTitle} from '../components/Ui'
+import {EmptyState, Panel, PageHeader, SectionTitle} from '../components/Ui'
 
 type ImportMode = 'trades' | 'prices'
 type PreviewTab = 'raw' | 'parsed' | 'duplicates'
@@ -150,8 +150,8 @@ export const UploadsPage = () => {
   }
 
   return (
-    <View UNSAFE_style={{display: 'grid', gap: '20px'}}>
-      <SectionTitle
+    <View UNSAFE_style={{display: 'grid', gap: '24px'}}>
+      <PageHeader
         title="Uploads"
         subtitle="Preview imports before committing them. Sample files are available for quick testing."
         actions={
