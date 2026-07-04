@@ -3,8 +3,7 @@
   inset-block-start: 0;
   z-index: 20;
   width: 100%;
-  border-block-end: 1px solid var(--spectrum-global-color-gray-200);
-  background: var(--spectrum-global-color-gray-50);
+  background: var(--spectrum-global-color-gray-100);
 }
 
 .top-bar__inner {
