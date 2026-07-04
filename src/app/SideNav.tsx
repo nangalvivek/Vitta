@@ -56,9 +56,6 @@ export const SideNav = () => {
 
   return (
     <View UNSAFE_className={`side-nav-shell${isNarrow ? ' side-nav-shell--mobile' : ''}`}>
-      <View UNSAFE_className="side-nav-shell__header">
-        <Text UNSAFE_className="side-nav-shell__section-label">Navigation</Text>
-      </View>
       <ListBox
         aria-label="Primary navigation"
         selectionMode="single"
