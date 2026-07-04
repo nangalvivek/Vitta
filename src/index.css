@@ -20,37 +20,18 @@ a {
   text-decoration: none;
 }
 
-.app-shell {
+.app-layout {
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 18rem minmax(0, 1fr);
+  display: flex;
+  flex-direction: column;
 }
 
-.app-sidebar {
-  border-right: 1px solid var(--spectrum-global-color-gray-200);
-  background: var(--spectrum-global-color-gray-100);
-}
-
-.app-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  border-bottom: 1px solid var(--spectrum-global-color-gray-200);
-  background: color-mix(in srgb, var(--spectrum-global-color-gray-50) 92%, transparent);
-  backdrop-filter: blur(12px);
+.app-layout__body {
+  min-height: 0;
+  flex: 1 1 auto;
 }
 
 .app-content {
-  padding: 1.25rem;
-}
-
-@media (max-width: 960px) {
-  .app-shell {
-    grid-template-columns: 1fr;
-  }
-
-  .app-sidebar {
-    border-right: 0;
-    border-bottom: 1px solid var(--spectrum-global-color-gray-200);
-  }
+  padding: 1.5rem;
+  min-width: 0;
 }

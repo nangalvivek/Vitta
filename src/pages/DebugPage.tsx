@@ -91,7 +91,7 @@ export const DebugPage = () => {
 
         <Panel>
           <SectionTitle title="Transaction inspector" subtitle="Search by symbol or date and inspect source documents." />
-          <SearchField aria-label="Search transactions" placeholder="Search by date or symbol" value={search} onChange={setSearch} />
+          <SearchField label="Search transactions" description="Search by date or symbol" value={search} onChange={setSearch} />
           {searchResults.length === 0 ? (
             <EmptyState title="No results" description="Enter a date or symbol to inspect transaction source rows." />
           ) : (

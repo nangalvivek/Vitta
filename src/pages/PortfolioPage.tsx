@@ -37,7 +37,7 @@ export const PortfolioPage = () => {
 
       <Panel>
         <Flex gap="size-100" wrap alignItems="end">
-          <SearchField aria-label="Search holdings" placeholder="Search by symbol or ISIN" value={search} onChange={setSearch} />
+          <SearchField label="Search holdings" description="Search by symbol or ISIN" value={search} onChange={setSearch} />
           <Flex gap="size-100" wrap>
             {(['ALL', 'IN', 'US'] as const).map((item) => (
               <Button key={item} variant={filter === item ? 'accent' : 'secondary'} onPress={() => setFilter(item)}>{item === 'ALL' ? 'All' : item === 'IN' ? 'India' : 'Foreign'}</Button>
