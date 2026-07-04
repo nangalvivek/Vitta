@@ -9,8 +9,7 @@
 .top-bar__inner {
   min-height: 4rem;
   padding-block: 0.85rem;
-  padding-inline-start: 3rem;
-  padding-inline-end: 1rem;
+  padding-inline: 3rem;
   box-sizing: border-box;
 }
 
