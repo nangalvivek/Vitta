@@ -60,7 +60,7 @@ a {
   flex: 1 1 auto;
   display: flex;
   gap: 1rem;
-  padding: 1rem;
+  padding: 0 1rem 1rem 1rem;
   padding-inline-end: 3rem;
   background: var(--shell-chrome-bg);
 }
