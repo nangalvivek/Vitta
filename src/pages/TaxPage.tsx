@@ -32,7 +32,7 @@ const yearPickerRingStyle: string = style({
   borderRadius: 'lg',
   borderWidth: 2,
   borderStyle: 'solid',
-  borderColor: 'gray-300',
+  borderColor: 'accent-900',
   paddingX: space(8),
   paddingY: space(2)
 })
