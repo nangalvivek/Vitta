@@ -81,7 +81,7 @@ export const TaxPage = () => {
         title="Tax"
         titleAdornment={
           <div className={yearPickerRingStyle}>
-            <Picker aria-label="Financial year" isQuiet selectedKey={String(taxYear)} onSelectionChange={(key) => setTaxYear(Number(key))}>
+            <Picker aria-label="Financial year" isQuiet size="XL" selectedKey={String(taxYear)} onSelectionChange={(key) => setTaxYear(Number(key))}>
               {years.map((year) => <PickerItem key={String(year)} id={String(year)} textValue={fyLabel(year)}>{fyLabel(year)}</PickerItem>)}
             </Picker>
           </div>
