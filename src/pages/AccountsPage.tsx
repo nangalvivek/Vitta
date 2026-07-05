@@ -3,7 +3,7 @@ import {Button, Cell, Column, Heading, Row, TableBody, TableHeader, TableView, T
 import {useNavigate} from 'react-router-dom'
 import {usePortfolioData} from '../hooks/usePortfolioData'
 import {formatMoney} from '../lib/format'
-import {EmptyState, EmptyStateIllustrations, Panel, PageHeader, pageStackStyle, pageSectionGridStyle, secondaryTextStyle, toStyleString} from '../components/Ui'
+import {EmptyState, EmptyStateIllustrations, Panel, PageHeader, pageStackStyle, pageEmptyStackStyle, pageSectionGridStyle, secondaryTextStyle, toStyleString} from '../components/Ui'
 import type {Account} from '../domain/types'
 
 const brokerLabels: Record<Account['broker'], string> = {
@@ -46,18 +46,16 @@ export const AccountsPage = () => {
   const showValueColumn = rows.some((row) => row.currentValueInr !== undefined)
 
   return (
-    <div className={pageStackStyle}>
+    <div className={accounts.length === 0 ? pageEmptyStackStyle : pageStackStyle}>
       <PageHeader title="Accounts" />
 
       {accounts.length === 0 ? (
-        <div className={pageSectionGridStyle}>
-          <EmptyState
+        <EmptyState
             title="No accounts yet"
             description="Import a tradebook or holdings file to create your demat and broker accounts automatically."
             action={<Button variant="accent" onPress={() => navigate('/uploads')}>Upload tradebook</Button>}
             illustration={<EmptyStateIllustrations.upload />}
           />
-        </div>
       ) : (
         <Panel>
           <div className={pageSectionGridStyle}>

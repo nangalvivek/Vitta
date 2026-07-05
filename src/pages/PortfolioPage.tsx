@@ -6,7 +6,7 @@ import DropToUploadIllustration from '@react-spectrum/s2/illustrations/gradient/
 import {useNavigate} from 'react-router-dom'
 import {usePortfolioData} from '../hooks/usePortfolioData'
 import {formatMoney, formatQty} from '../lib/format'
-import {Panel, PageHeader, SectionTitle, EmptyState, EmptyStateIllustrations, pageStackStyle, pageSectionGridStyle, pageEmptyRegionStyle, secondaryTextStyle, toStyleString} from '../components/Ui'
+import {Panel, PageHeader, SectionTitle, EmptyState, EmptyStateIllustrations, pageStackStyle, pageEmptyStackStyle, pageSectionGridStyle, pageEmptyRegionStyle, secondaryTextStyle, toStyleString} from '../components/Ui'
 
 type RegionFilter = 'ALL' | 'IN' | 'US'
 
@@ -42,7 +42,7 @@ export const PortfolioPage = () => {
   const selectedHolding = filteredHoldings.find((holding) => `${holding.securityId}|${holding.accountId}` === selectedHoldingId)
 
   return (
-    <div className={pageStackStyle}>
+    <div className={holdings.length === 0 ? pageEmptyStackStyle : pageStackStyle}>
       <PageHeader title="Portfolio" />
 
       {holdings.length === 0 ? (

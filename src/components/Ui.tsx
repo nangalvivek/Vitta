@@ -160,6 +160,7 @@ export const StatusBadge = ({value}: {value: 'NEW' | 'DUPLICATE' | 'ERROR' | 'OK
 }
 
 export const pageStackStyle: string = style({display: 'grid', gap: space(24), minHeight: '100%', flex: '1 1 auto'})
+export const pageEmptyStackStyle: string = style({display: 'grid', gridTemplateRows: 'auto minmax(0, 1fr)', gap: space(24), minHeight: '100%', flex: '1 1 auto'})
 export const pageSectionGridStyle: string = style({display: 'grid', gap: space(20)})
 export const pageTwoColumnGridStyle: string = style({display: 'grid', gridTemplateColumns: 'minmax(0, 2fr) minmax(18rem, 1fr)', gap: space(20)})
 export const pageMetricGridStyle: string = style({display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(13rem, 1fr))', gap: space(16)})
