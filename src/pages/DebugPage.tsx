@@ -56,7 +56,7 @@ export const DebugPage = () => {
 
   return (
     <div className={pageStackStyle}>
-      <PageHeader title="Debug" subtitle="Inspect logs, verify hashes, and trace FIFO lot consumption." />
+      <PageHeader title="Debug" />
 
       <div className={pageTwoColumnGridStyle}>
         <Panel>

@@ -47,10 +47,7 @@ export const AccountsPage = () => {
 
   return (
     <div className={pageStackStyle}>
-      <PageHeader
-        title="Accounts"
-        subtitle="Demat and broker accounts inferred from imported tradebooks and holdings."
-      />
+      <PageHeader title="Accounts" />
 
       {accounts.length === 0 ? (
         <div className={pageSectionGridStyle}>

@@ -164,7 +164,6 @@ export const UploadsPage = () => {
     <div className={pageStackStyle}>
       <PageHeader
         title="Uploads"
-        subtitle="Preview imports before committing them. Sample files are available for quick testing."
         actions={
           <>
             <Button variant={mode === 'trades' ? 'accent' : 'secondary'} onPress={() => { setMode('trades'); setSearchParams({mode: 'trades'}) }}>Trade import</Button>

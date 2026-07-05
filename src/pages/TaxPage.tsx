@@ -67,7 +67,6 @@ export const TaxPage = () => {
     <div className={taxPageStackStyle}>
       <PageHeader
         title="Tax"
-        subtitle="FA / FSI use calendar year. CG / TR use the financial-year view derived from the selected tax year."
         actions={
           <>
             <Picker aria-label="Tax year" selectedKey={String(taxYear)} onSelectionChange={(key) => setTaxYear(Number(key))}>

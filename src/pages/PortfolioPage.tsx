@@ -43,7 +43,7 @@ export const PortfolioPage = () => {
 
   return (
     <div className={pageStackStyle}>
-      <PageHeader title="Portfolio" subtitle="Holdings, average cost, and FIFO open lots." />
+      <PageHeader title="Portfolio" />
 
       {holdings.length === 0 ? (
         <div className={pageEmptyRegionStyle}>

@@ -69,7 +69,6 @@ export const DashboardPage = () => {
     <div className={pageStackStyle}>
       <PageHeader
         title="Dashboard"
-        subtitle="A quick read on holdings, imports, and ITR readiness."
         actions={
           <>
             <Button variant="accent" onPress={() => navigate('/uploads')}>Upload Tradebook</Button>

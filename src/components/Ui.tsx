@@ -90,11 +90,10 @@ const emptyStateRegionStyle: string = style({
 
 export const Panel = ({children}: {children: ReactNode}) => <div className={panelStyle}>{children}</div>
 
-export const PageHeader = ({title, subtitle, actions}: {title: string; subtitle?: string; actions?: ReactNode}) => (
+export const PageHeader = ({title, actions}: {title: string; actions?: ReactNode}) => (
   <div className={pageHeaderStyle}>
     <div className={pageHeaderTextStyle}>
       <Heading level={1}>{title}</Heading>
-      {subtitle ? <Text styles={toStyleString(secondaryTextStyle)}>{subtitle}</Text> : null}
     </div>
     {actions ? <div className={actionGroupStyle}>{actions}</div> : null}
   </div>
