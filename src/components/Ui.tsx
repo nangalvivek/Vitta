@@ -14,7 +14,9 @@ const panelStyle: string = style({
   borderStyle: 'solid',
   borderColor: 'gray-200',
   backgroundColor: 'layer-1',
-  boxShadow: 'elevated'
+  boxShadow: 'elevated',
+  display: 'flex',
+  flexDirection: 'column'
 })
 
 const pageHeaderStyle: string = style({
@@ -89,7 +91,11 @@ const emptyStateRegionStyle: string = style({
   alignItems: 'center',
   justifyContent: 'center',
   width: '100%',
-  minHeight: '100%',
+  flexGrow: 1,
+  flexShrink: 1,
+  flexBasis: 'auto',
+  minHeight: 0,
+  paddingBlock: space(24),
   textAlign: 'center'
 })
 
@@ -162,7 +168,7 @@ export const StatusBadge = ({value}: {value: 'NEW' | 'DUPLICATE' | 'ERROR' | 'OK
 export const pageStackStyle: string = style({display: 'grid', gap: space(24), minHeight: '100%', flex: '1 1 auto'})
 export const pageEmptyStackStyle: string = style({display: 'grid', gridTemplateRows: 'auto minmax(0, 1fr)', gap: space(24), minHeight: '100%', flex: '1 1 auto'})
 export const pageSectionGridStyle: string = style({display: 'grid', gap: space(20)})
-export const pageTwoColumnGridStyle: string = style({display: 'grid', gridTemplateColumns: 'minmax(0, 2fr) minmax(18rem, 1fr)', gap: space(20)})
+export const pageTwoColumnGridStyle: string = style({display: 'grid', gridTemplateColumns: 'minmax(0, 2fr) minmax(18rem, 1fr)', gap: space(20), alignItems: 'start'})
 export const pageMetricGridStyle: string = style({display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(13rem, 1fr))', gap: space(16)})
 export const pageToolbarStyle: string = style({display: 'flex', gap: space(8), flexWrap: 'wrap', alignItems: 'end', justifyContent: 'space-between'})
 export const pageStackedToolbarStyle: string = style({display: 'flex', gap: space(8), flexWrap: 'wrap'})
