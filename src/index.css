@@ -76,7 +76,7 @@ a {
   min-width: 0;
   min-height: 0;
   padding: 1.5rem;
-  border-radius: 0.375rem;
+  border-radius: 1rem;
   border: 1px solid var(--shell-panel-border);
   background: var(--shell-panel-bg);
   overflow: hidden;
