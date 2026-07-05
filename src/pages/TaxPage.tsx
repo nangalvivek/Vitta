@@ -24,6 +24,18 @@ const tabLabels: Record<TabKey, string> = {
 }
 
 const years = Array.from({length: 10}, (_, index) => new Date().getFullYear() - index)
+const fyLabel = (year: number): string => `FY ${year - 1}-${String(year).slice(-2)}`
+
+const yearPickerRingStyle: string = style({
+  display: 'inline-flex',
+  alignItems: 'center',
+  borderRadius: 'lg',
+  borderWidth: 2,
+  borderStyle: 'solid',
+  borderColor: 'gray-300',
+  paddingX: space(8),
+  paddingY: space(2)
+})
 
 const taxPageStackStyle: string = style({display: 'grid', gap: space(24)})
 const cgGridStyle: string = style({display: 'grid', gap: space(20)})
@@ -68,9 +80,11 @@ export const TaxPage = () => {
       <PageHeader
         title="Tax"
         titleAdornment={
-          <Picker aria-label="Tax year" selectedKey={String(taxYear)} onSelectionChange={(key) => setTaxYear(Number(key))}>
-            {years.map((year) => <PickerItem key={String(year)} id={String(year)} textValue={String(year)}>{year}</PickerItem>)}
-          </Picker>
+          <div className={yearPickerRingStyle}>
+            <Picker aria-label="Financial year" isQuiet selectedKey={String(taxYear)} onSelectionChange={(key) => setTaxYear(Number(key))}>
+              {years.map((year) => <PickerItem key={String(year)} id={String(year)} textValue={fyLabel(year)}>{fyLabel(year)}</PickerItem>)}
+            </Picker>
+          </div>
         }
         actions={
           <>
