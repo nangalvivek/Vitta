@@ -1,6 +1,6 @@
-import AppsIcon from '@react-spectrum/s2/icons/Apps'
 import BrightnessContrastIcon from '@react-spectrum/s2/icons/BrightnessContrast'
 import {useAppTheme} from './theme'
+import {BrandMark} from './BrandMark'
 import './TopBar.css'
 
 export const TopBar = () => {
@@ -12,7 +12,7 @@ export const TopBar = () => {
       <div className="top-bar__inner">
         <div className="top-bar__brand">
           <span className="top-bar__brand-mark" aria-hidden="true">
-            <AppsIcon aria-hidden="true" />
+            <BrandMark />
           </span>
           <span className="top-bar__brand-text">Portfolio Tracker</span>
         </div>
