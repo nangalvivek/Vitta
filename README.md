@@ -65,3 +65,5 @@ Sample files to try live in `public/samples/`.
 - Backup export/restore is available at any time; restore replaces local data.
 
 This is a personal tool, not tax advice.
+
+
